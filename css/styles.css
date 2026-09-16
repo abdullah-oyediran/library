@@ -16,15 +16,17 @@ body {
     align-items: center;
 }
 #header {
-    border: 1px solid black;
     width: 90%;
     height: 90%;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+#header .nav-bar {
+    
+}
+
 #book-library {
-    border: 1px solid blue;
     width: 90%;
     min-height: 95%;
     padding: 20px;
@@ -42,6 +44,7 @@ body {
     border-radius: 5px;
     text-align: center;
     font-size: 1.5em;
+    margin: 0px;
 }
 .book .author {
     font-style: italic;
