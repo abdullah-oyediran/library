@@ -12,6 +12,8 @@ body {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50px 1fr;
+    justify-items: center;
+    align-items: center;
 }
 #header {
     border: 1px solid black;
@@ -20,4 +22,37 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+#book-library {
+    border: 1px solid blue;
+    width: 90%;
+    min-height: 95%;
+    padding: 20px;
+}
+.book {
+    width: 200px;
+    aspect-ratio: 3/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.book .book-card {
+    border: 1px solid blue;
+    aspect-ratio: 3/4;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5em;
+}
+.book .author {
+    font-style: italic;
+    text-align: center;
+}
+.book .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px;
+}
+.book .footer .no-pages {
+    margin: 0px;
 }
