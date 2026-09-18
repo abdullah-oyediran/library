@@ -57,4 +57,19 @@ function displayBooks() {
     }
 }
 
+function addNewBook() {
+    if (
+        titleInput.value.trim() === '' && authorInput.value.trim() === '' && pagesInput.value.trim() === ''
+    ) return
+
+    let book = {}
+    book.title = titleInput.value.trim()
+    book.author = authorInput.value.trim()
+    book.pages = pagesInput.value.trim()
+
+    books.unshift(book)
+    
+    displayBooks()
+}
+
 document.addEventListener('DOMContentLoaded', displayBooks)
