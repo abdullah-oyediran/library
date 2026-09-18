@@ -9,15 +9,6 @@ let submitBtn = document.querySelector('#submit-btn')
 
 let books = [];
 
-/*
-h3.book-card
-p.author
-div.footer
-    <img alt="Delete book" src="assets/trash.svg">
-    <p class="no-pages">255 pages</p>
-    <img alt="Read" src="assets/book-open-check.svg">
-*/
-
 function displayBooks() {
     for (let bookItem of books) {
         let book = document.createElement('div')
@@ -59,17 +50,21 @@ function displayBooks() {
 
 function addNewBook() {
     if (
-        titleInput.value.trim() === '' && authorInput.value.trim() === '' && pagesInput.value.trim() === ''
+        titleInput.value.trim() === '' || authorInput.value.trim() === '' || pagesInput.value.trim() === ''
     ) return
 
     let book = {}
     book.title = titleInput.value.trim()
     book.author = authorInput.value.trim()
-    book.pages = pagesInput.value.trim()
+    book.pages = Number(pagesInput.value.trim())
 
     books.unshift(book)
-    
+
     displayBooks()
 }
 
 document.addEventListener('DOMContentLoaded', displayBooks)
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    addNewBook();
+})
