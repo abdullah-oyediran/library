@@ -21,12 +21,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    transition: transform 500ms ease-in;
+}
+#header .nav-bar button {
+    background: rgba(255, 255, 255, 0);
+    outline: none;
+    border: 0px;
+    border-radius: 50%;
+    transition: all 200ms linear;
+}
+#header .nav-bar button:hover {
+    transform: scale(1.5);
+    transition: all 100ms linear
+    /*background: rgba(90, 87, 87, 0.2);*/
 }
 
+#header .nav-bar button:active {
+    transform: scale(1.1);
+}
 #book-library {
     width: 90%;
     min-height: 95%;
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(autofill, minmax(200px, 1fr));
 }
 .book {
     width: 200px;
@@ -66,6 +84,7 @@ body {
     place-items: center;
     background-color: rgba(32, 31, 31, 0.884);
     transform: translateY(100%);
+    transition: transform 200ms ease-out;
 }
 
 #form-container form {
@@ -114,4 +133,11 @@ body {
 }
 #submit-btn:active {
     transform: scale(0.95);
+}
+
+#app.form-visible #form-container {
+    transform: translateY(0px);
+}
+#app.form-visible #header {
+    transform: translateY(-100%)
 }

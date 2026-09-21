@@ -1,14 +1,17 @@
+let app = document.querySelector('#app')
 let bookLibrary = document.querySelector('#book-library')
 let formContainer = document.querySelector('#form-container')
-formContainer.style.transform = 'translateY(0px)'
 let header = document.querySelector('#header')
 let titleInput = document.querySelector('#title');
 let authorInput = document.querySelector('#author')
 let pagesInput = document.querySelector('#pages')
 let submitBtn = document.querySelector('#submit-btn')
+let form = document.querySelector('form')
+let showFormBtn = document.querySelector('#show-form')
 
 let books = [];
 
+// Functions
 function displayBooks() {
     for (let bookItem of books) {
         let book = document.createElement('div')
@@ -34,7 +37,7 @@ function displayBooks() {
 
         let pages = document.createElement('p')
         pages.classList.add('no-pages')
-        pages.textContent = bookItem.pages
+        pages.textContent = `${bookItem.pages} pages`
         footer.appendChild(pages)
 
         let bookIcon = document.createElement('img')
@@ -58,13 +61,26 @@ function addNewBook() {
     book.author = authorInput.value.trim()
     book.pages = Number(pagesInput.value.trim())
 
+    titleInput.value = ''
+    authorInput.value = ''
+    pagesInput.value = ''
+
     books.unshift(book)
 
     displayBooks()
 }
 
+function showForm() {
+    app.classList.add('form-visible')
+}
+
+// Event Listeners
 document.addEventListener('DOMContentLoaded', displayBooks)
-submitBtn.addEventListener('click', (e) => {
+
+form.addEventListener('submit', (e) => {
     e.preventDefault()
+    
     addNewBook();
 })
+
+showFormBtn.addEventListener('click', showForm)
