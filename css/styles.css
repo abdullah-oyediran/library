@@ -14,6 +14,7 @@ body {
     justify-items: center;
     align-items: center;
     overflow: clip;
+    padding: 10px;
 }
 #app button, #app img {
     user-select: none;
@@ -37,8 +38,7 @@ body {
 }
 #header .nav-bar button:hover {
     transform: scale(1.5);
-    transition: all 100ms linear
-    /*background: rgba(90, 87, 87, 0.2);*/
+    transition: all 100ms linear;
 }
 
 #header .nav-bar button:active {
@@ -46,10 +46,11 @@ body {
 }
 #book-library {
     width: 90%;
-    min-height: 95%;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(autofill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    overflow: auto;
 }
 .book {
     width: 200px;
@@ -113,6 +114,16 @@ body {
     outline: 0px;
     aspect-ratio: 1/1;
     background-color: rgba(240, 248, 255, 0.842);
+    transition: all 200ms linear;
+}
+
+#form-container form #hide-form:hover {
+    transform: scale(1.5);
+    transition: all 100ms linear;
+}
+
+#form-container form #hide-form:active {
+    transform: scale(1.1);
 }
 
 #form-container form input {

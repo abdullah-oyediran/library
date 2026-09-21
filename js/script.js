@@ -19,7 +19,7 @@ function displayBooks() {
         book.classList.add('book')
 
         let bookCard = document.createElement('h3')
-        bookCard.textContent = bookItem.title
+        bookCard.textContent = bookItem.title + book.id
         bookCard.classList.add('book-card')
         book.appendChild(bookCard)
 
@@ -61,6 +61,7 @@ function addNewBook() {
     book.title = titleInput.value.trim()
     book.author = authorInput.value.trim()
     book.pages = Number(pagesInput.value.trim())
+    book.id = crypto.randomUUID()
 
     titleInput.value = ''
     authorInput.value = ''
