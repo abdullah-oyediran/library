@@ -8,6 +8,7 @@ let pagesInput = document.querySelector('#pages')
 let submitBtn = document.querySelector('#submit-btn')
 let form = document.querySelector('form')
 let showFormBtn = document.querySelector('#show-form')
+let hideFormBtn = document.querySelector('#hide-form')
 
 let books = [];
 
@@ -74,6 +75,10 @@ function showForm() {
     app.classList.add('form-visible')
 }
 
+function hideForm() {
+    app.classList.remove('form-visible')
+}
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', displayBooks)
 
@@ -84,3 +89,5 @@ form.addEventListener('submit', (e) => {
 })
 
 showFormBtn.addEventListener('click', showForm)
+
+hideFormBtn.addEventListener('click', hideForm)

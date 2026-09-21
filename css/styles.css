@@ -6,7 +6,6 @@ body {
     margin: 0px;
 }
 #app {
-    border: 1px solid #ff0000;
     height: 100vh;
     display: grid;
     position: relative;
@@ -14,6 +13,10 @@ body {
     grid-template-rows: 50px 1fr;
     justify-items: center;
     align-items: center;
+    overflow: clip;
+}
+#app button, #app img {
+    user-select: none;
 }
 #header {
     width: 90%;
@@ -22,6 +25,8 @@ body {
     align-items: center;
     justify-content: space-around;
     transition: transform 500ms ease-in;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
 }
 #header .nav-bar button {
     background: rgba(255, 255, 255, 0);
@@ -96,7 +101,20 @@ body {
     border-radius: 15px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.452);
     border-radius: 10px;
+    position: relative;
 }
+
+#form-container form #hide-form {
+    position: absolute;
+    left: 105%;
+    bottom: 105%;
+    border-radius: 50%;
+    border: 0px;
+    outline: 0px;
+    aspect-ratio: 1/1;
+    background-color: rgba(240, 248, 255, 0.842);
+}
+
 #form-container form input {
     justify-self: center;
     padding: 5px;
