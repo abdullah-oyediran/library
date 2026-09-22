@@ -40,7 +40,7 @@ function displayBooks() {
         let deleteIconBtn = document.createElement('button')
         deleteIconBtn.title = 'Delete this book'
         let deleteIcon = document.createElement('img')
-        deleteIcon.src = '../assets/trash.svg'
+        deleteIcon.src = './../assets/trash.svg'
         deleteIcon.alt = 'Delete this book'
         deleteIconBtn.appendChild(deleteIcon)
         deleteIconBtn.addEventListener('click', () => {
@@ -57,7 +57,7 @@ function displayBooks() {
         let bookIconBtn = document.createElement('button')
         bookIconBtn.title = 'Mark this book as read'
         let bookIcon = document.createElement('img')
-        bookIcon.src = '../assets/book-open-check.svg'
+        bookIcon.src = './../assets/book-open-check.svg'
         bookIcon.alt = 'Read'
         bookIconBtn.appendChild(bookIcon)
         footer.appendChild(bookIconBtn)
