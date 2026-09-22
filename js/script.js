@@ -9,12 +9,16 @@ let submitBtn = document.querySelector('#submit-btn')
 let form = document.querySelector('form')
 let showFormBtn = document.querySelector('#show-form')
 let hideFormBtn = document.querySelector('#hide-form')
+let emptyLibMarkup = document.querySelector('#empty-lib-markup')
+
 
 let books = [];
 
 // Functions
 function displayBooks() {
     bookLibrary.innerHTML = ''
+    emptyLibMarkup.classList.toggle('hidden', books.length !== 0)
+
     for (let bookItem of books) {
         let book = document.createElement('div')
         book.classList.add('book')
@@ -86,7 +90,10 @@ function addNewBook() {
 
 function showForm() {
     app.classList.add('form-visible')
-    titleInput.focus();
+
+    setTimeout(() => {
+        titleInput.focus()
+    }, 600)
 }
 
 function hideForm() {
