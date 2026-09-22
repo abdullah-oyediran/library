@@ -10,10 +10,10 @@ body {
     display: grid;
     position: relative;
     grid-template-columns: 100%;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 50px minmax(0, 1fr);
     justify-items: center;
-    align-items: center;
-    overflow: clip;
+    align-items: stretch;
+    overflow: hidden;
     padding: 10px;
 }
 #app button, #app img {
@@ -29,14 +29,14 @@ body {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.11);
     border-radius: 10px;
 }
-#header .nav-bar button {
+button {
     background: rgba(255, 255, 255, 0);
     outline: none;
     border: 0px;
     border-radius: 50%;
     transition: all 200ms linear;
 }
-#header .nav-bar button:hover {
+button:hover {
     transform: scale(1.5);
     transition: all 100ms linear;
 }
@@ -46,11 +46,15 @@ body {
 }
 #book-library {
     width: 90%;
+    min-height: 0;
+    height: 100%;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
     overflow: auto;
+    justify-content: center;
+    align-content: flex-start;
 }
 .book {
     width: 200px;

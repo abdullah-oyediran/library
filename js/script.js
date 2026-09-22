@@ -14,9 +14,11 @@ let books = [];
 
 // Functions
 function displayBooks() {
+    bookLibrary.innerHTML = ''
     for (let bookItem of books) {
         let book = document.createElement('div')
         book.classList.add('book')
+        book.dataset.id = bookItem.id
 
         let bookCard = document.createElement('h3')
         bookCard.textContent = bookItem.title + book.id
@@ -31,20 +33,30 @@ function displayBooks() {
         let footer = document.createElement('div')
         footer.classList.add('footer')
 
+        let deleteIconBtn = document.createElement('button')
+        deleteIconBtn.title = 'Delete this book'
         let deleteIcon = document.createElement('img')
         deleteIcon.src = '../assets/trash.svg'
         deleteIcon.alt = 'Delete this book'
-        footer.appendChild(deleteIcon)
+        deleteIconBtn.appendChild(deleteIcon)
+        deleteIconBtn.addEventListener('click', () => {
+            deleteBook(deleteIconBtn.parentElement.parentElement.dataset.id)
+            displayBooks()
+        })
+        footer.appendChild(deleteIconBtn)
 
         let pages = document.createElement('p')
         pages.classList.add('no-pages')
         pages.textContent = `${bookItem.pages} pages`
         footer.appendChild(pages)
 
+        let bookIconBtn = document.createElement('button')
+        bookIconBtn.title = 'Mark this book as read'
         let bookIcon = document.createElement('img')
         bookIcon.src = '../assets/book-open-check.svg'
         bookIcon.alt = 'Read'
-        footer.appendChild(bookIcon)
+        bookIconBtn.appendChild(bookIcon)
+        footer.appendChild(bookIconBtn)
 
         book.appendChild(footer)
 
@@ -74,10 +86,18 @@ function addNewBook() {
 
 function showForm() {
     app.classList.add('form-visible')
+    titleInput.focus();
 }
 
 function hideForm() {
     app.classList.remove('form-visible')
+}
+
+function deleteBook(id) {
+    let index = books.findIndex(book => book.id === id)
+    if (index !== -1) {
+        books.splice(index, 1)
+    }
 }
 
 // Event Listeners
